@@ -1,45 +1,42 @@
 $(document).ready(function() {
 
     /* Сворачивание меню */
-
     let menu = $('.header__nav');
+    /* burger = $('.burger'); */
 
-    $('body').on('click', '.burger', function(event) {
+    $('body').on('click', '.burger', function() {
         menu.addClass('header__nav_open');
+        $('.burger').addClass('burger_activ');
     });
-
-    $(document).mouseup(function(e) {
+    $(document).mouseup(function() {
         menu.removeClass('header__nav_open');
+        $('.burger').removeClass('burger_activ');
     });
 
     /* Скролл по ссылкам */
-
     $('.nav__link').click((e) => {
         e.preventDefault();
         let href = $(e.currentTarget).attr('href');
         let top = $(href).offset().top;
-
         $('body,html').animate({
             scrollTop: top,
         }, 900);
     });
 
     /* Swiper */
-
-    var mySwiper = new Swiper('.swiper-container', {
+    var swiper = new Swiper('.swiper-container', {
         loop: true,
         slidesPerView: 1,
+        speed: 700,
         breakpoints: {
-            577: {
+            769: {
                 slidesPerView: 2,
                 spaceBetween: 40
             },
-
             1025: {
                 slidesPerView: 3,
                 spaceBetween: 30
             },
-
         },
         navigation: {
             nextEl: '.swiper-next',
@@ -50,14 +47,13 @@ $(document).ready(function() {
             type: 'bullets',
             clickable: true,
         },
-    })
+    });
+
 
     /* Летающие элементы */
-
     new WOW().init();
 
     /* Работа с popup  */
-
     let popup = $('.popup-container'),
         callback = $('.callback'),
         mainInfo = $('.main-info__popup'),
@@ -102,12 +98,12 @@ $(document).ready(function() {
     });
 
     /* маска телефона */
-
     $('#phone').inputmask({ "mask": "+7(999) 999-9999" });
 
+    //Работа с формой отправки
     $('form').each(function() {
         $(this).validate({
-            errorPlacement(error, element) {
+            errorPlacement() {
                 return true;
             },
             focusInvalid: false,
@@ -132,20 +128,19 @@ $(document).ready(function() {
             },
             submitHandler(form) {
                 let th = $(form);
-
                 $.ajax({
                     type: 'POST',
                     url: 'mail.php',
                     data: th.serialize(),
                 }).done(() => {
-                    $('.send').css('display', 'flex'),
-                        th.trigger('reset');
+                    th.trigger('reset'),
+                        popup.css('display', 'none'),
+                        $('.send').css('display', 'flex');
+
                 });
 
                 return false;
             },
-
         });
     });
-
 });
