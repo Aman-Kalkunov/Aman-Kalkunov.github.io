@@ -38,7 +38,7 @@
 }
 
 body {
-    min-width: 576px;
+    min-width: 375px;
 }
 
 a {
@@ -347,6 +347,11 @@ button:active {
     display: none;
 }
 
+.popup__text-box {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
 .popup__text {
     font-size: 14px;
     color: #8993ad;
@@ -379,7 +384,8 @@ button:active {
     justify-content: flex-start;
     max-width: 500px;
     max-height: 600px;
-    overflow-y: auto;
+    padding-right: 10px;
+    overflow-y: hidden;
 }
 
 .svg-box {
@@ -1066,7 +1072,11 @@ button:active {
 
 @media (max-width: 576px) {
     .header {
-        padding-top: 26px;
+        padding-top: 25px;
+    }
+    .nav__item {
+        display: block;
+        margin-bottom: 7px;
     }
     .fixed-container {
         max-width: 576px;
@@ -1095,7 +1105,7 @@ button:active {
         padding-left: 3px;
     }
     .fly {
-        font-size: 35px;
+        font-size: 25px;
     }
     .fly_two {
         display: block;
@@ -1124,7 +1134,7 @@ button:active {
     @keyframes element__four {
         100% {
             transform: rotate(347deg);
-            top: 5%;
+            top: 3%;
             left: 80%;
         }
     }
@@ -1172,6 +1182,7 @@ button:active {
     }
     .skills__item {
         width: 100%;
+        max-width: 375px;
         margin-bottom: 50px;
     }
     .skills__item:nth-child(2) {
@@ -1186,10 +1197,7 @@ button:active {
     }
     .skill__text {
         font-size: 16px;
-        padding: 9px 130px 0;
-    }
-    .skill__text:nth-child(2) {
-        padding: 9px 130px 0;
+        padding: 9px 60px 0;
     }
     .popup__label {
         flex-direction: column;
@@ -1207,6 +1215,9 @@ button:active {
     }
     .example__heading {
         margin-bottom: 38px;
+    }
+    .example__image {
+        min-height: 300px;
     }
     .swiper-container {
         margin-bottom: 104px;
@@ -1277,5 +1288,18 @@ button:active {
     .copyright {
         font-size: 12px;
         padding: 18px 0;
+    }
+}
+
+@media (max-width: 375px) {
+    .phone {
+        justify-content: space-between;
+        width: 72%;
+    }
+    .svg-box__photo {
+        left: 125px;
+    }
+    .example__image {
+        min-height: 300px;
     }
 }

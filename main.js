@@ -2,8 +2,8 @@ $(document).ready(function() {
 
     /* Сворачивание меню */
     let menu = $('.header__nav');
-    /* burger = $('.burger'); */
 
+    /* burger = $('.burger'); */
     $('body').on('click', '.burger', function() {
         menu.addClass('header__nav_open');
         $('.burger').addClass('burger_activ');
@@ -22,6 +22,9 @@ $(document).ready(function() {
             scrollTop: top,
         }, 900);
     });
+
+    //Скролл-бар
+    $('.popup__text-box').mCustomScrollbar();
 
     /* Swiper */
     var swiper = new Swiper('.swiper-container', {
@@ -58,7 +61,6 @@ $(document).ready(function() {
         callback = $('.callback'),
         mainInfo = $('.main-info__popup'),
         skills = $('.skills__popup');
-
 
     function disableScroll() {
         $('html , body').css('overflow', 'hidden');
