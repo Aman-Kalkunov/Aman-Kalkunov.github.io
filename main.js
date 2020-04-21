@@ -26,6 +26,7 @@ $(document).ready(function() {
     //Скролл-бар
     $('.popup__text-box').mCustomScrollbar();
 
+
     /* Swiper */
     var swiper = new Swiper('.swiper-container', {
         loop: true,
@@ -56,6 +57,7 @@ $(document).ready(function() {
     /* Летающие элементы */
     new WOW().init();
 
+
     /* Работа с popup  */
     let popup = $('.popup-container'),
         callback = $('.callback'),
@@ -72,25 +74,7 @@ $(document).ready(function() {
 
     $('body').on('click', '.popup__close', function(event) {
         event.preventDefault();
-        popup.fadeOut(enableScroll)
-    });
-
-    $('body').on('click', '.phone__button_js', function() {
-
-        callback.fadeIn(disableScroll)
-        callback.css('display', 'flex')
-    });
-
-    $('body').on('click', '.main-info__button', function() {
-
-        mainInfo.fadeIn(disableScroll)
-        mainInfo.css('display', 'flex')
-    });
-
-    $('body').on('click', '.skills__button', function() {
-
-        skills.fadeIn(disableScroll)
-        skills.css('display', 'flex')
+        popup.fadeOut(enableScroll);
     });
 
     $(popup).click(function(event) {
@@ -99,8 +83,28 @@ $(document).ready(function() {
         }
     });
 
+    $('body').on('click', '.phone__button_js', function() {
+
+        callback.fadeIn(disableScroll);
+        callback.css('display', 'flex');
+    });
+
+    $('body').on('click', '.main-info__button', function() {
+
+        mainInfo.fadeIn(disableScroll);
+        mainInfo.css('display', 'flex');
+    });
+
+    $('body').on('click', '.skills__button', function() {
+
+        skills.fadeIn(disableScroll);
+        skills.css('display', 'flex');
+    });
+
+
     /* маска телефона */
     $('#phone').inputmask({ "mask": "+7(999) 999-9999" });
+
 
     //Работа с формой отправки
     $('form').each(function() {
