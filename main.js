@@ -2,8 +2,6 @@ $(document).ready(function() {
 
     /* Сворачивание меню */
     let menu = $('.header__nav');
-
-    /* burger = $('.burger'); */
     $('body').on('click', '.burger', function() {
         menu.addClass('header__nav_open');
         $('.burger').addClass('burger_activ');
@@ -25,7 +23,6 @@ $(document).ready(function() {
 
     //Скролл-бар
     $('.popup__text-box').mCustomScrollbar();
-
 
     /* Swiper */
     var swiper = new Swiper('.swiper-container', {
@@ -53,16 +50,17 @@ $(document).ready(function() {
         },
     });
 
-
     /* Летающие элементы */
     new WOW().init();
-
 
     /* Работа с popup  */
     let popup = $('.popup-container'),
         callback = $('.callback'),
         mainInfo = $('.main-info__popup'),
-        skills = $('.skills__popup');
+        skills = $('.skills__popup'),
+        popupPhoneButton = $('.phone__button_js'),
+        popupMainInfoButton = $('.main-info__button'),
+        popupSkillsButton = $('.skills__button');
 
     function disableScroll() {
         $('html , body').css('overflow', 'hidden');
@@ -83,28 +81,19 @@ $(document).ready(function() {
         }
     });
 
-    $('body').on('click', '.phone__button_js', function() {
+    function popupButton(popupButton, popupWindow) {
+        popupButton.on('click', function() {
 
-        callback.fadeIn(disableScroll);
-        callback.css('display', 'flex');
-    });
-
-    $('body').on('click', '.main-info__button', function() {
-
-        mainInfo.fadeIn(disableScroll);
-        mainInfo.css('display', 'flex');
-    });
-
-    $('body').on('click', '.skills__button', function() {
-
-        skills.fadeIn(disableScroll);
-        skills.css('display', 'flex');
-    });
-
+            popupWindow.fadeIn(disableScroll);
+            popupWindow.css('display', 'flex');
+        });
+    };
+    popupButton(popupPhoneButton, callback);
+    popupButton(popupMainInfoButton, mainInfo);
+    popupButton(popupSkillsButton, skills);
 
     /* маска телефона */
     $('#phone').inputmask({ "mask": "+7(999) 999-9999" });
-
 
     //Работа с формой отправки
     $('form').each(function() {
@@ -130,7 +119,7 @@ $(document).ready(function() {
                     required: true,
                     minlength: 20,
                     maxlength: 500,
-                }
+                },
             },
             submitHandler(form) {
                 let th = $(form);
@@ -144,7 +133,6 @@ $(document).ready(function() {
                         $('.send').css('display', 'flex');
 
                 });
-
                 return false;
             },
         });

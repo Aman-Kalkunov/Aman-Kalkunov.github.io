@@ -335,19 +335,6 @@ button:active {
     border-radius: 5px;
 }
 
-
-/* .popup__file-button {
-    width: 100px;
-    height: 25px;
-    font-size: 12px;
-    padding: 5px;
-    cursor: pointer;
-} */
-
-.popup__file {
-    display: none;
-}
-
 .popup__text-box {
     max-height: 600px;
     overflow-y: auto;
