@@ -26,7 +26,7 @@ $(document).ready(function() {
 
     /* Swiper */
     var swiper = new Swiper('.swiper-container', {
-        loop: true,
+        loop: false,
         slidesPerView: 1,
         speed: 700,
         breakpoints: {
