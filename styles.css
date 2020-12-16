@@ -140,6 +140,7 @@ button:active {
   display: inline-flex;
   justify-content: space-between;
   padding-top: 13px;
+  z-index: 11;
 }
 
 .header__nav_open {
@@ -569,6 +570,7 @@ button:active {
 .example__text {
   padding: 5px 0;
   color: #8993ad;
+  line-height: 1.4;
 }
 
 .example__ancor {
@@ -673,6 +675,9 @@ button:active {
   padding-left: 17px;
   padding-right: 63px;
   text-indent: -16px;
+}
+.vector__ancor {
+  color: #fff;
 }
 
 .bottom-fly {
@@ -889,9 +894,7 @@ button:active {
   }
   .nav__item {
     display: block;
-  }
-  .nav__link {
-    font-size: 14px;
+    margin-bottom: 20px;
   }
   .main-info__title {
     font-size: 54px;
@@ -1126,9 +1129,6 @@ button:active {
 @media (max-width: 576px) {
   .header {
     padding-top: 25px;
-  }
-  .nav__item {
-    margin-bottom: 7px;
   }
   .fixed-container {
     max-width: 576px;
